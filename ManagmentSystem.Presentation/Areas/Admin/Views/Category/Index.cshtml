@@ -1,0 +1,130 @@
+﻿@model IEnumerable<ManagmentSystem.Presentation.Areas.Admin.Models.CategoryVMs.AdminCategoryListVM>
+
+@{
+    ViewData["Title"] = "Kategori Listesi";
+}
+
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> Localizer
+
+<br />
+<br />
+<br />
+
+<div class="card">
+    <div class="table-responsive">
+        <h2 class="categories-heading">@Localizer["Categories"]</h2>
+        <div class="button-container">
+            <a asp-action="Create" class="btn btn-success create-button">@Localizer["Create New Category"]</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table align-items-center mb-0">
+                <thead>
+                    <tr>
+                        <th class="text-secondary text-xxs font-weight-bolder opacity-7">@Localizer["CATEGORY NAME"]</th>
+                        <th class="text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Localizer["DESCRIPTION"]</th>
+                        <th class="text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Localizer["CATEGORY TYPE"]</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Localizer["ACTIONS"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex px-2 py-1">
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-xs">@Html.DisplayFor(modelItem => item.CategoryName)</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex flex-column justify-content-center">
+                                    <p class="text-xs text-secondary mb-0">@Html.DisplayFor(modelItem => item.Description)</p>
+                                </div>
+                            </td>
+                            <td>
+                                @if (item.ParentCategoryId != null)
+                                {
+                                    <p class="text-xs text-secondary mb-0 main-category">
+                                        @Localizer["Subcategory"]
+                                    </p>
+
+                                    <p class="text-xs text-secondary mb-0">
+                                        (<span style="color:#11cdef ">@Localizer["Main Category"]:</span> @item.ParentCategoryName)
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p class="text-xs text-secondary mb-0 main-category">@Localizer["Main Category"]</p>
+                                }
+                            </td>
+                            <td class="align-middle text-center">
+                                <div class="button-group">
+                                    <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary btn-sm">@Localizer["Update"]</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">@Localizer["Details"]</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">@Localizer["Delete"]</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <style>
+        .card {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+            .button-group .btn {
+                min-width: 80px;
+                white-space: nowrap;
+            }
+
+        .table-responsive {
+            padding: 10px;
+        }
+
+        .table {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            font-size: 12px;
+        }
+
+        .categories-heading {
+            margin-right: auto;
+        }
+
+        .main-category {
+            color: #2dce89 !important;
+            font-weight: bold;
+        }
+
+        .create-button {
+            position: relative;
+            margin-bottom: 10px;
+        }
+    </style>
+}

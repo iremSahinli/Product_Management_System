@@ -1,0 +1,159 @@
+﻿@model IEnumerable<ManagmentSystem.Presentation.Areas.Admin.Models.UserVMs.AdminUserListVM>
+
+@{
+    ViewData["Title"] = "Kullanıcılar";
+}
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> Localizer
+
+
+<br />
+<br />
+<br />
+
+<form method="post" asp-controller="AdminUser" asp-action="UpdateLockoutStatus">
+    @Html.AntiForgeryToken() <!-- koruma için Antiforgery token -->
+</form>
+
+<div class="card">
+    <h2 class="users-heading">@Localizer["Users"]</h2>
+    <div class="table-responsive">
+        <div class="button-container">
+            <a asp-action="Create" class="btn btn-success">@Localizer["Create New User"]</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table align-items-center mb-0">
+                <thead>
+                    <tr>
+
+                        <th class="text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Localizer["FIRST NAME_"]</th>
+                        <th class="text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Localizer["LAST NAME_"]</th>
+                        <th class="text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Localizer["MAIL_"]</th>
+                        <th class="text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Localizer["LOCK OR UNLUCK SWITCH_"]</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Localizer["ACTIONS_"]</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="@(item.IsRecordMissing ? "missing-record" : "")">
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td class="@(item.IsRecordMissing ? "missing-record" : "")">
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td class="@(item.IsRecordMissing ? "missing-record" : "")">
+                                @Html.DisplayFor(modelItem => item.Mail)
+                            </td>
+                            <td>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="lockoutEnabledSwitch-@item.Id"
+                                           data-user-id="@item.Id"
+                                    @(item.LockoutEnabled ? "checked" : "") />
+                                    <label class="form-check-label" for="lockoutEnabledSwitch-@item.Id"></label>
+                                </div>
+                            </td>
+                            <td class="align-middle text-center">
+                                <div class="button-group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">@Localizer["Update"]</a>
+                                    <a asp-action="UserDetail" asp-route-id="@item.Id" class="btn btn-info btn-sm">@Localizer["Details"]</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">@Localizer["Delete"]</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+
+    .card {
+        display: grid;
+        max-width: 90%; /* Kartın genişliğini kısalt */
+        margin: auto; /* Kartı ortala */
+        overflow-x: hidden;
+    }
+
+
+    .button-group {
+        display: flex; /* Butonları yan yana dizmek için */
+        justify-content: center; /* Butonları merkezde hizalar */
+        flex-wrap: wrap; /* Ekran küçüldüğünde butonların alt satıra geçmesini sağlar */
+        gap: 5px; /* Butonlar arasında boşluk bırakır */
+    }
+
+        .button-group .btn {
+            min-width: 80px; /* Butonların minimum genişliği */
+            white-space: nowrap; /* Buton metninin satıra sığması için */
+        }
+
+    .table-responsive {
+        padding: 10px; /* İç boşluk ekleyerek tabloyu ferahlat */
+        overflow-x: auto;
+    }
+
+    th:not(.form-check-label), td:not(:has(.form-check)) {
+        font-size: 12px; /* Tablo içi metin boyutu */
+    }
+
+    .missing-record {
+        color: red; /* Kayıt yapılmadı mesajını kırmızı yapar */
+    }
+
+    .users-heading {
+        margin-left: 10px;
+    }
+
+
+    .form-check-input:checked {
+        background-color: green;
+    }
+
+    .form-check-input:not(:checked) {
+        background-color: red;
+    }
+</style>
+
+
+
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('input[type="checkbox"][id^="lockoutEnabledSwitch-"]').forEach(function (element) {
+            element.addEventListener('change', function () {
+                var userId = this.getAttribute('data-user-id');
+                var isEnabled = this.checked;
+                var token = $('input[name="__RequestVerificationToken"]').val(); // Antiforgery token
+
+                console.log("Kullanıcı ID: " + userId + " | Kilit Durumu: " + isEnabled);
+
+                $.ajax({
+                    url: '/Admin/AdminUser/UpdateLockoutStatus',
+                    type: 'POST',
+                    data: {
+                        __RequestVerificationToken: token,  // Antiforgery token
+                        userId: userId,
+                        lockoutEnabled: isEnabled
+                    },
+                    success: function (response) {
+                        console.log("Başarılı: Kullanıcı durumu güncellendi.");
+                        alert('Kullanıcı durumu başarıyla güncellendi.');
+                    },
+                    error: function (error) {
+                        console.log("Hata:", error);
+                        alert('Kullanıcı durumu güncellenirken bir hata oluştu.');
+                        element.checked = !isEnabled; // Hata olursa Switch'i eski durumuna geri döndür.
+                    }
+                });
+            });
+        });
+    </script>
+}

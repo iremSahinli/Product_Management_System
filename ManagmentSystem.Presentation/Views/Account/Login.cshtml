@@ -1,0 +1,227 @@
+﻿@{
+    Layout = null;
+}
+
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> Localizer
+
+@model ManagmentSystem.Presentation.Models.AccountVM.RegisterVM
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] Login</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS (for navbar functionality) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Yazı Tipleri ve İkonlar -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="~/assets/css/nucleo-svg.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg blur top-0 z-index-3  mt-4 py-2 start-0 end-0 mx-4">
+        <div class="container-fluid">
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon mt-2">
+                    <span class="navbar-toggler-bar bar1"></span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link me-2" href="Home/Index">
+                            <i class="ni ni-shop opacity-6 text-dark me-1"></i>
+                            <span>shop</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <div class="form-container">
+        <div class="form-box">
+            <!-- Kayıt Formu -->
+            <form class="register-form" asp-action="Register" asp-controller="Account" method="POST" style="display:none;">
+                @Html.AntiForgeryToken() <!-- CSRF Koruması İçin -->
+                <div class="register-header">
+                    <h2>@Localizer["Welcome"]</h2>
+                    <p>@Localizer["Use this form to create a new account."]</p>
+                </div>
+                <input asp-for="Email" placeholder="E-posta" type="email" required />
+                <input asp-for="Password" placeholder="Şifre" type="password" required />
+                <input asp-for="ConfirmPassword" placeholder="Şifre (Tekrar)" type="password" required />
+                <button type="submit" class="btn btn-success">@Localizer["Register"]</button>
+                <p class="message">@Localizer["Already a Member?"] <a href="#">Login</a></p>
+            </form>
+
+            <!-- Giriş Formu -->
+            <form class="login-form" asp-action="Login" asp-controller="Account">
+                @Html.AntiForgeryToken() <!-- CSRF Koruması İçin -->
+                <div class="login-header">
+                    <h2>@Localizer["Login"]</h2>
+                    <p>@Localizer["Enter your email and password to login."]</p>
+                </div>
+                <input id="LoginEmail" asp-for="Email" placeholder="E-posta" type="email" required />
+                <input id="LoginPassword" asp-for="Password" placeholder="Şifre" type="password" required />
+                <button type="submit" class="btn btn-primary">@Localizer["Login"]</button>
+                <p class="message">@Localizer["Don't have an account?"] <a href="#">@Localizer["Sign up"]</a></p>
+                <p class="message b">@Localizer["Forgot your password?"]<a href="@Url.Action("ForgotPassword", "Account")">@Localizer["Update My Password"]</a></p>
+            </form>
+        </div>
+    </div>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+    <script>
+        $(document).ready(function () {
+            // Geçiş butonuna tıklanınca formlar arasında geçiş yap
+            $('.message a').click(function (e) {
+                const linkText = $(this).text();
+
+                // Eğer "Kayıt Ol" veya "Giriş Yap" bağlantısıysa animasyonu çalıştır
+                if (linkText.includes("Sign up") || linkText.includes("Login")) {
+                    e.preventDefault(); // Varsayılan davranışı engelle
+                    if (linkText.includes("Sign up")) {
+                        $('.login-form').animate({ height: "toggle", opacity: "toggle" }, "slow"); // Giriş formunu gizle
+                        $('.register-form').animate({ height: "toggle", opacity: "toggle" }, "slow"); // Kayıt formunu göster
+                    } else if (linkText.includes("Login")) {
+                        $('.register-form').animate({ height: "toggle", opacity: "toggle" }, "slow"); // Kayıt formunu gizle
+                        $('.login-form').animate({ height: "toggle", opacity: "toggle" }, "slow"); // Giriş formunu göster
+                    }
+                }
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(to left, #5e72e4, #5e72e4);
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .form-container {
+            width: 360px;
+            margin: auto;
+            padding: 8% 0 0;
+        }
+
+        .form-box {
+            background: #FFFFFF;
+            max-width: 360px;
+            margin: 0 auto 100px;
+            padding: 50px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+        .container:before, .container:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .form-box input {
+            font-family: "Roboto", sans-serif;
+            outline: none;
+            background: #f2f2f2;
+            width: 100%;
+            border: none;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            border-radius: 15px;
+        }
+
+        .form-box button {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            background: #5e72e4;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+            .form-box button:hover {
+                background: #2dce89;
+            }
+
+        .message {
+            margin-top: 15px;
+            color: #b3b3b3;
+            font-size: 12px;
+        }
+
+            .message a {
+                color: #4CAF50;
+                text-decoration: none;
+            }
+
+        .container:before, .container:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* Navbar background and positioning */
+        .navbar {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        /* Yuvarlak buton stili */
+        .navbar-nav .nav-item .nav-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px; /* Buton genişliği */
+            height: 60px; /* Buton yüksekliği */
+            border-radius: 50%; /* Tam küre */
+            background-color: rgba(255, 255, 255, 0.15); /* Yarı saydam arka plan */
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Geçiş animasyonu */
+            position: absolute; /* Sabit konumlandırma */
+            top: 20px; /* Sayfanın üstünden uzaklık */
+            left: 20px; /* Sayfanın solundan uzaklık */
+        }
+
+            /* İkon için stil */
+            .navbar-nav .nav-item .nav-link i {
+                color: white;
+            }
+
+            /* Hover efekti: Büyüme ve yeşil renge geçiş */
+            .navbar-nav .nav-item .nav-link:hover {
+                background-color: #28a745; /* Yeşil renk */
+                transform: scale(1.2); /* Butonu büyütme */
+                color: white;
+            }
+    </style>
+
+    @await Component.InvokeAsync("Notyf")
+</body>
+</html>

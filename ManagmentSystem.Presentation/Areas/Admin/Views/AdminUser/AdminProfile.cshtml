@@ -1,0 +1,39 @@
+﻿@model ManagmentSystem.Presentation.Areas.Admin.Models.UserVMs.AdminProfileVM
+
+@{
+    ViewData["Title"] = "AdminProfile";
+}
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> Localizer
+
+    <br />
+    <br />
+    <br />
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card profile-card mx-auto">
+                <div class="card-body text-center">
+                    <p class="card-description">
+                        <h2 class="text-center">@Localizer["Admin Profile"]</h2>
+                        <h6 class="card-title">
+                            <strong>@Localizer["Name"]:</strong>  @Html.DisplayFor(model => model.FirstName)
+                        </h6>
+                        <h6 class="card-title">
+                            <strong>@Localizer["Surname"]:</strong>  @Html.DisplayFor(model => model.LastName)
+                        </h6>
+                            <strong>@Localizer["E-Mail"]:</strong> @Html.DisplayFor(model => model.Email)
+                        </h6>
+                        <div class="mt-3">
+                            <a href="@Url.Action("Index", "Home", new { id = Model.Id })" class="btn btn-danger btn-lg">@Localizer["Back"]</a>
+                        </div>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

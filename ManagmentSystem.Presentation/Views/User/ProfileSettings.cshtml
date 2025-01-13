@@ -1,0 +1,129 @@
+﻿@model ManagmentSystem.Business.DTOs.UserProfileDTOs.UserProfileDTO
+
+@{
+    ViewData["Title"] = Localizer["Profile Details"];
+}
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> Localizer
+
+<br />
+<div class="container text-center">
+
+    <div class="card profile-card mx-auto">
+        <div class="card-body">
+            <div class="profile-header">
+                <h2>@Localizer["Profile Details"]</h2>
+
+                <div class="image-container mx-auto">
+
+                    @if (!string.IsNullOrEmpty(Model.ProfileImage))
+                    {
+                        <img src="@Url.Content($"~/uploads/{Model.ProfileImage}")" alt="Profile Photo" class="profile-photo" />
+                    }
+                    else
+                    {
+                        <img src="/uploads/Not Image.jpg" alt="Profile Photo" class="profile-photo" />
+                    }
+                </div>
+                <h4 class="card-title">@Model.FirstName @Model.LastName</h4>
+                <h6 class="category text-info text-gradient">@Localizer["User"]</h6>
+            </div>
+            <dl class="row">
+                <dt class="col-sm-4">@Localizer["Phone Number"]:</dt>
+                <dd class="col-sm-8">@Model.PhoneNumber</dd>
+                <dt class="col-sm-4">@Localizer["Date of Birth"]:</dt>
+                <dd class="col-sm-8">@Model.DateOfBirth?.ToString("dd/MM/yyyy")</dd>
+                <dt class="col-sm-4">@Localizer["Mail"]:</dt>
+                <dd class="col-sm-8">@Model.Mail</dd>
+                <dt class="col-sm-4">@Localizer["Address"]:</dt>
+                <dd class="col-sm-8">@Model.Address</dd>
+            </dl>
+            <a asp-action="Update" class="btn btn-success">@Localizer["Go Update Page"]</a>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .container {
+        display: grid;
+        max-width:  50%;
+        padding: 0 15px;
+    }
+
+    .profile-card {
+        background-color: rgba(255, 255, 255, 1); /* Transparan arka plan */
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 450px;
+    }
+
+    .profile-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+
+
+    .card-description {
+        margin: 20px 0;
+        font-style: italic;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        min-width: 100px; /* Butonların minimum genişliği */
+        height: 40px; /* Butonların sabit yüksekliği */
+        
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 5px;
+        border: 1px solid #ddd; /* Çerçeve ekliyoruz */
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .row dl {
+        display: table; /* Tablo yapısı oluşturur */
+        width: 50%; /* Genişliği %50 yapar */
+    }
+
+    .row dt {
+        display: grid;
+        width: 50%; /* Her iki sütunun eşit genişlikte olmasını sağlar */
+        text-align: right; /* Metinleri sağa hizalar */
+        vertical-align: middle; /* Dikeyde ortalar */
+    }
+
+    .row dd {
+        display: grid;
+        width: 50%; /* Her iki sütunun eşit genişlikte olmasını sağlar */
+        padding: 0px; /* İç boşluk */
+        vertical-align: middle; /* Dikeyde ortalar */
+        text-align: left;
+        white-space: normal;
+    }
+
+ 
+</style>
+

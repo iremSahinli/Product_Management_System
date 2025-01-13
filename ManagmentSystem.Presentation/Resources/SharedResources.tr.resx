@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A category with this name already exists." xml:space="preserve">
+    <value>Kategori ismi tanımlıdır.</value>
+  </data>
+  <data name="ACTIONS_" xml:space="preserve">
+    <value>İŞLEMLER</value>
+  </data>
+  <data name="Adding a New User:" xml:space="preserve">
+    <value>Yeni Kullanıcı Ekleme:</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="Admin Home" xml:space="preserve">
+    <value>Admin Paneli</value>
+  </data>
+  <data name="Admin information is not avaible in this system" xml:space="preserve">
+    <value>Admin bilgisi sistemde mevcut değil</value>
+  </data>
+  <data name="Admin Profile" xml:space="preserve">
+    <value>Admin Profil</value>
+  </data>
+  <data name="Already a Member?" xml:space="preserve">
+    <value>Zaten Üye misiniz?</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Geri Dön</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Geri Dön</value>
+  </data>
+  <data name="Buy" xml:space="preserve">
+    <value>Satın Al</value>
+  </data>
+  <data name="Can I make a product purchase?" xml:space="preserve">
+    <value>Ürün Satın Alma İşlemi Yapabilirmiyim?</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Kategoriler</value>
+  </data>
+  <data name="Categories are not recieved" xml:space="preserve">
+    <value>Kategoriler alınamadı</value>
+  </data>
+  <data name="Categories Listed" xml:space="preserve">
+    <value>Kategoriler listelendi</value>
+  </data>
+  <data name="CATEGORIES_" xml:space="preserve">
+    <value>KATEGORİLER</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>KATEGORİ</value>
+  </data>
+  <data name="Category Available in System" xml:space="preserve">
+    <value>Kategori sistemde mevcut</value>
+  </data>
+  <data name="Category Detail Page Loaded Successfully" xml:space="preserve">
+    <value>Ürün detay sayfası başarıyla yüklendi.</value>
+  </data>
+  <data name="Category Details" xml:space="preserve">
+    <value>Kategori Detayları</value>
+  </data>
+  <data name="Category Listing Success" xml:space="preserve">
+    <value>Kategori Listeleme Başarılı</value>
+  </data>
+  <data name="Category Name" xml:space="preserve">
+    <value>Kategori Adı</value>
+  </data>
+  <data name="CATEGORY NAME_" xml:space="preserve">
+    <value>KATEGORİ ADI</value>
+  </data>
+  <data name="Category successfully added" xml:space="preserve">
+    <value>Kategori ekleme başarılı</value>
+  </data>
+  <data name="CATEGORY TYPE" xml:space="preserve">
+    <value>KATEGORİ TÜRÜ</value>
+  </data>
+  <data name="Category Types" xml:space="preserve">
+    <value>Kategori Türleri</value>
+  </data>
+  <data name="Category update failed." xml:space="preserve">
+    <value>Kategori güncelleme hatası</value>
+  </data>
+  <data name="Category updated successfully." xml:space="preserve">
+    <value>Kategori başarıyla güncellendi</value>
+  </data>
+  <data name="Choose a Main Category" xml:space="preserve">
+    <value>Bir Ana Kategori Seçin</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Oluştur</value>
+  </data>
+  <data name="Create Category" xml:space="preserve">
+    <value>Kategori Oluştur</value>
+  </data>
+  <data name="Create New Category" xml:space="preserve">
+    <value>Yeni Kategori Oluştur</value>
+  </data>
+  <data name="Create New Product" xml:space="preserve">
+    <value>Yeni Ürün Oluştur</value>
+  </data>
+  <data name="Create New User" xml:space="preserve">
+    <value>Yeni Kullanıcı Oluştur</value>
+  </data>
+  <data name="Date of Birth" xml:space="preserve">
+    <value>Doğum Tarihi</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Deleted is successfully" xml:space="preserve">
+    <value>Silme işlemi başarılı</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="DESCRIPTION_" xml:space="preserve">
+    <value>AÇIKLAMA</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaylar</value>
+  </data>
+  <data name="Don't have an account" xml:space="preserve">
+    <value>Hesabınız yok mu</value>
+  </data>
+  <data name="Don't have an account?" xml:space="preserve">
+    <value>Üye değil misin?</value>
+  </data>
+  <data name="E-Mail" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Email address:" xml:space="preserve">
+    <value>E-posta adresi:</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>İngilizce</value>
+  </data>
+  <data name="Enter product names and descriptions carefully, making sure they match the categories correctly. Also, adding an image of the product makes it easier to recognize." xml:space="preserve">
+    <value>Ürün adlarını ve açıklamalarını dikkatlice girin ve kategorilerle doğru şekilde eşleştiğinden emin olun. Ayrıca, ürünün bir resmini eklemek tanınmasını kolaylaştırır.</value>
+  </data>
+  <data name="Enter your email and password to login." xml:space="preserve">
+    <value>Giriş yapmak için lütfen e-postanızı ve şifrenizi giriniz.</value>
+  </data>
+  <data name="Enter your email and password to sign in" xml:space="preserve">
+    <value>Giriş yapmak için e-postanızı ve şifrenizi girin</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="First Name" xml:space="preserve">
+    <value>İsim</value>
+  </data>
+  <data name="FIRST NAME_" xml:space="preserve">
+    <value>İSİM</value>
+  </data>
+  <data name="For now, you can view the products page and update your profile information specifically for users in the application interface." xml:space="preserve">
+    <value>Şuan için uygulama arayüzünde kullanıcılara özel olarak ürünler sayfasını görüntüleyebilir, profil bilgilerini güncelleyebilirsin.</value>
+  </data>
+  <data name="Forgot your password" xml:space="preserve">
+    <value>Şifrenizi mi unuttunuz?</value>
+  </data>
+  <data name="Forgot your password?" xml:space="preserve">
+    <value>Şifreni mi unuttun?</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Tam İsmi</value>
+  </data>
+  <data name="Go Update Page" xml:space="preserve">
+    <value>Güncelleme Sayfasına Git</value>
+  </data>
+  <data name="Hello Admin!" xml:space="preserve">
+    <value>Merhaba Admin!</value>
+  </data>
+  <data name="Hello User!" xml:space="preserve">
+    <value>Merhaba Kullanıcı!</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Anasayfa</value>
+  </data>
+  <data name="How Can I Reach the Authorized Person (Admin) on the Site?" xml:space="preserve">
+    <value>Site de Yetkili Kişiye(Admin) Nasıl Ulaşabilirim?</value>
+  </data>
+  <data name="How Do I Manage Users?" xml:space="preserve">
+    <value>Kullanıcıları Nasıl Yönetirim?</value>
+  </data>
+  <data name="If you experience any problems with your account information, you can reach us at the e-mail address below." xml:space="preserve">
+    <value>Hesap bilgilerinle ilgili bir problem yaşarsan bize aşağıdaki mail adresinden ulaşabilirsin.</value>
+  </data>
+  <data name="Last Name" xml:space="preserve">
+    <value>Soyad</value>
+  </data>
+  <data name="LAST NAME_" xml:space="preserve">
+    <value>SOYADI</value>
+  </data>
+  <data name="LOCK OR UNLUCK SWITCH_" xml:space="preserve">
+    <value>KULLANICIYI ETKİN VEYA ETKİSİZ YAP</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Giriş Yap</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="Mail" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="MAIL_" xml:space="preserve">
+    <value>MAIL</value>
+  </data>
+  <data name="Main Category" xml:space="preserve">
+    <value>Ana Kategori</value>
+  </data>
+  <data name="Make sure you match your products to the right categories. Always listing products under the right category will help users find the products they are looking for more easily." xml:space="preserve">
+    <value>Ürünlerinizi doğru kategorilerle eşleştirdiğinizden emin olun. Ürünleri her zaman doğru kategori altında listelemek kullanıcıların aradıkları ürünleri daha kolay bulmalarına yardımcı olacaktır.</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>İSMİ</value>
+  </data>
+  <data name="New password create successfully" xml:space="preserve">
+    <value>Yeni şifre başarı ile oluşturuldu</value>
+  </data>
+  <data name="Page Not Found." xml:space="preserve">
+    <value>Sayfa Bulunamadı.</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>Telefon Numarası</value>
+  </data>
+  <data name="Please check your email address." xml:space="preserve">
+    <value>Lütfen email adresinizi kontrol ediniz.</value>
+  </data>
+  <data name="Please enter your 10-digit number without leading 0" xml:space="preserve">
+    <value>Lütfen başında 0 olmadan 10 haneli numaranızı girin</value>
+  </data>
+  <data name="Please enter your registered email address and we will send you a password reset link." xml:space="preserve">
+    <value>Lütfen kayıtlı e-posta adresinizi girin, size bir şifre sıfırlama bağlantısı göndereceğiz.</value>
+  </data>
+  <data name="Please fill in the product information completely!" xml:space="preserve">
+    <value>Lütfen ürün bilgilerini eksiksiz doldurunuz!</value>
+  </data>
+  <data name="Please fill out the form correctly." xml:space="preserve">
+    <value>Lütfen formu doğru şekilde girin</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Fiyat</value>
+  </data>
+  <data name="PRICE_" xml:space="preserve">
+    <value>FİYAT</value>
+  </data>
+  <data name="PRODUCT" xml:space="preserve">
+    <value>ÜRÜN</value>
+  </data>
+  <data name="Product creation successful" xml:space="preserve">
+    <value>Ürün oluşturma başarılı</value>
+  </data>
+  <data name="Product creation unsuccessful" xml:space="preserve">
+    <value>Ürün oluşturma başarısız</value>
+  </data>
+  <data name="Product deleted" xml:space="preserve">
+    <value>Ürün Silindi</value>
+  </data>
+  <data name="Product deleting successful" xml:space="preserve">
+    <value>Ürün silme başarılı</value>
+  </data>
+  <data name="Product deleting unsuccessful" xml:space="preserve">
+    <value>Ürün silme başarısız</value>
+  </data>
+  <data name="Product Description" xml:space="preserve">
+    <value>Ürün Açıklaması</value>
+  </data>
+  <data name="Product Detail Page Loaded Successfully" xml:space="preserve">
+    <value>Ürün detay sayfasının yüklenmesi başarılı</value>
+  </data>
+  <data name="Product Detail Page Loaded unsuccessfully" xml:space="preserve">
+    <value>Ürün detay sayfasının yüklenmesi başarısız oldu</value>
+  </data>
+  <data name="Product Details" xml:space="preserve">
+    <value>Ürün Detayları</value>
+  </data>
+  <data name="PRODUCT IMAGE" xml:space="preserve">
+    <value>ÜRÜN GÖRSELİ</value>
+  </data>
+  <data name="Product Image for Create" xml:space="preserve">
+    <value>Ürün Görseli</value>
+  </data>
+  <data name="Product Images:" xml:space="preserve">
+    <value>Ürün Görselleri:</value>
+  </data>
+  <data name="Product Image_" xml:space="preserve">
+    <value>Ürün Fotoğrafı</value>
+  </data>
+  <data name="Product is not deleted" xml:space="preserve">
+    <value>Ürün silinemedi</value>
+  </data>
+  <data name="Product listing faild" xml:space="preserve">
+    <value>Ürün listeleme başarısız</value>
+  </data>
+  <data name="Product Listing Failed!" xml:space="preserve">
+    <value>Ürün Listelemesi Başarısız!</value>
+  </data>
+  <data name="Product Listing Successful" xml:space="preserve">
+    <value>Ürün Listeleme Başarılı</value>
+  </data>
+  <data name="Product Name" xml:space="preserve">
+    <value>Ürün Adı</value>
+  </data>
+  <data name="PRODUCT NAME_" xml:space="preserve">
+    <value>ÜRÜN ADI</value>
+  </data>
+  <data name="Product Price" xml:space="preserve">
+    <value>Ürün Fiyatı</value>
+  </data>
+  <data name="Product update successful" xml:space="preserve">
+    <value>Ürün güncelleme başarılı</value>
+  </data>
+  <data name="Product update unsuccessful" xml:space="preserve">
+    <value>Ürün güncelleme başarısız</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Ürünler</value>
+  </data>
+  <data name="Products Listed!" xml:space="preserve">
+    <value>Ürünler Listelendi!</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Profil Detayları</value>
+  </data>
+  <data name="Profile Image" xml:space="preserve">
+    <value>Profil Resmi</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Profil Ayarları</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Kayıt</value>
+  </data>
+  <data name="remember me" xml:space="preserve">
+    <value>beni hatırla</value>
+  </data>
+  <data name="Remember, you have control over the application!" xml:space="preserve">
+    <value>Unutmayın, uygulamanın kontrolü sizde!</value>
+  </data>
+  <data name="Right Category, right product!:" xml:space="preserve">
+    <value>Doğru Kategori, Doğru Ürün!:</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="Select Categories" xml:space="preserve">
+    <value>Kategorileri Seç</value>
+  </data>
+  <data name="Select Categories for Create" xml:space="preserve">
+    <value>Kategorileri Seç</value>
+  </data>
+  <data name="Select File" xml:space="preserve">
+    <value>Dosya Seç</value>
+  </data>
+  <data name="Select Language" xml:space="preserve">
+    <value>Dil Seç</value>
+  </data>
+  <data name="Select Main Category" xml:space="preserve">
+    <value>Ana Kategoriyi Seçin</value>
+  </data>
+  <data name="Send Mail" xml:space="preserve">
+    <value>Maili Gönder</value>
+  </data>
+  <data name="Sign Up" xml:space="preserve">
+    <value>Kayıt Ol</value>
+  </data>
+  <data name="Sub Category" xml:space="preserve">
+    <value>Alt Kategori</value>
+  </data>
+  <data name="Subcategory" xml:space="preserve">
+    <value>Alt Kategori</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Başarılı</value>
+  </data>
+  <data name="Terms and Conditions" xml:space="preserve">
+    <value>Şartlar Ve Koşullar</value>
+  </data>
+  <data name="The application continues to be developed and we are working to offer new features to users, please do not forget to follow us!" xml:space="preserve">
+    <value>Uygulama geliştirilmeye devam etmekte ve kullanıcılara yeni özellikler sunmak için çalışmalar yapmaktayız, bizi takip etmeyi unutma lütfen!</value>
+  </data>
+  <data name="The category you want to delete is used in the product and cannot be deleted." xml:space="preserve">
+    <value>Silmek istediğiniz kategori bir üründe kullanılıyor</value>
+  </data>
+  <data name="The category you want to delete is used in the subcategory and cannot be deleted." xml:space="preserve">
+    <value>Silmek istediğiniz kategori bir alt kategoride kullanılıyor</value>
+  </data>
+  <data name="The category you want to save is in the system, please add a different category." xml:space="preserve">
+    <value>Kaydetmek istediğiniz kategori sistemde mevcuttur. Lütfen farklı bir kategori girin.</value>
+  </data>
+  <data name="The interface is user-friendly and simple, the application is still under development and no product sales are currently made. Different features will continue to be added to the system with updates." xml:space="preserve">
+    <value>Arayüzü kullanıcı dostu ve basittir, uygulama hala geliştirilme aşamasındadır ve şu anda herhangi bir ürün satışı yapılmamaktadır. Güncellemelerle sisteme farklı özellikler eklenmeye devam edecektir.</value>
+  </data>
+  <data name="The model is invalid!" xml:space="preserve">
+    <value>Model geçersiz!</value>
+  </data>
+  <data name="The update cannot be performed until the user completes the registration process!" xml:space="preserve">
+    <value>Kullanıcı kayıt işlemini tamamlamadan güncelleştirme işlemi gerçekleştirilemez!</value>
+  </data>
+  <data name="There was an error while loading the page, please try again." xml:space="preserve">
+    <value>Sayfa Yüklenirken Hata oluştu, tekrar deneyiniz.</value>
+  </data>
+  <data name="This application that you are authorized for is a product - category, user management system. It is quite simple, easy to manage and you can easily access all areas in the system with the menu on the left. Product and category management is very simple. You can easily switch to product and category tables from the menu on the left in the same way. You can add, update, delete operations for product and category tables in seconds with the help of buttons and see the details of the product." xml:space="preserve">
+    <value>Yetkili olduğunuz bu uygulama bir ürün - kategori, kullanıcı yönetim sistemidir. Oldukça basit, yönetimi kolaydır ve soldaki menü ile sistemdeki tüm alanlara kolayca erişebilirsiniz. Ürün ve kategori yönetimi oldukça basittir. Aynı şekilde soldaki menüden ürün ve kategori tablolarına kolayca geçiş yapabilirsiniz. Ürün ve kategori tabloları için butonlar yardımıyla saniyeler içinde ekleme, güncelleme, silme işlemlerini yapabilir ve ürünün detaylarını görebilirsiniz.</value>
+  </data>
+  <data name="Turkish" xml:space="preserve">
+    <value>Türkçe</value>
+  </data>
+  <data name="Unsuccess" xml:space="preserve">
+    <value>Başarısız</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="Update Category" xml:space="preserve">
+    <value>Kategoriyi Güncelle</value>
+  </data>
+  <data name="Update failed." xml:space="preserve">
+    <value>Güncelleme başarısız.</value>
+  </data>
+  <data name="Update Product" xml:space="preserve">
+    <value>Ürünü Güncelle</value>
+  </data>
+  <data name="Update Profile" xml:space="preserve">
+    <value>Profil Güncelle</value>
+  </data>
+  <data name="Update successful!" xml:space="preserve">
+    <value>Güncelleme başarılı!</value>
+  </data>
+  <data name="Update unsuccessful!" xml:space="preserve">
+    <value>Güncelleme başarısız</value>
+  </data>
+  <data name="Update User Profile" xml:space="preserve">
+    <value>Kullanıcı Profilini Güncelle</value>
+  </data>
+  <data name="Upload New Image" xml:space="preserve">
+    <value>Ürün Görseli Ekle</value>
+  </data>
+  <data name="Use this form to create a new account" xml:space="preserve">
+    <value>Yeni bir hesap oluşturmak için bu formu kullanın</value>
+  </data>
+  <data name="Use this form to create a new account." xml:space="preserve">
+    <value>Bu Sayfayı Kullanarak Yeni Bir Kullanıcı Oluşturun.</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Kullanıcı</value>
+  </data>
+  <data name="User Activity Monitoring:" xml:space="preserve">
+    <value>Kullanıcı Etkinliği İzleme:</value>
+  </data>
+  <data name="User creation  successful" xml:space="preserve">
+    <value>Kullanıcı oluşturma başarılı</value>
+  </data>
+  <data name="User deleted successfully" xml:space="preserve">
+    <value>Kullanıcı başarı ile silindi</value>
+  </data>
+  <data name="User Detail" xml:space="preserve">
+    <value>Kullanıcı Detayları</value>
+  </data>
+  <data name="User not found,please try again" xml:space="preserve">
+    <value>Kullanıcı bulunamadı,lütfen tekrar deneyin</value>
+  </data>
+  <data name="User profile not found." xml:space="preserve">
+    <value>Kullanıcı profili bulunamadı.</value>
+  </data>
+  <data name="User status not updated." xml:space="preserve">
+    <value>Kullancı durumu güncellenemedi</value>
+  </data>
+  <data name="User status updated." xml:space="preserve">
+    <value>Kullanıcı durumu güncellendi</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Kullanıcılar</value>
+  </data>
+  <data name="Users listed successfully." xml:space="preserve">
+    <value>Kullanıcılar başarı ile listelendi</value>
+  </data>
+  <data name="Using high-quality and accurate product images increases the user experience and makes products more eye-catching. You should pay attention to this issue so that the right product reaches the right customer." xml:space="preserve">
+    <value>Yüksek kaliteli ve doğru ürün görselleri kullanmak kullanıcı deneyimini artırır ve ürünleri daha dikkat çekici hale getirir. Doğru ürünün doğru müşteriye ulaşması için bu konuya dikkat etmelisiniz.</value>
+  </data>
+  <data name="We have compiled a few questions and answers regarding the application for you, you can find them below." xml:space="preserve">
+    <value>Uygulamaya ilişkin birkaç soru ve cevabı sizler için derledik, aşağıda bulabilirsiniz.</value>
+  </data>
+  <data name="We have compiled the following information for you on how to use the application. We recommend that you read it before you start using it!" xml:space="preserve">
+    <value>Uygulamayı nasıl kullanacağınıza dair bilgileri sizin için derledik. Kullanmaya başlamadan önce okumanızı öneririz!</value>
+  </data>
+  <data name="We have sent an email to your address." xml:space="preserve">
+    <value>E-mail adresine mail gönderdik.</value>
+  </data>
+  <data name="We kindly request you to read it!" xml:space="preserve">
+    <value>Okumanızı rica ederiz!</value>
+  </data>
+  <data name="We will contact you as soon as possible!" xml:space="preserve">
+    <value>En kısa sürede sizinle iletişime geçeceğiz!</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Hoşgeldiniz</value>
+  </data>
+  <data name="Welcome Admin Page" xml:space="preserve">
+    <value>Admin Paneline Hoşgeldiniz</value>
+  </data>
+  <data name="Welcome to the app." xml:space="preserve">
+    <value>Uygulamaya hoşgeldiniz.</value>
+  </data>
+  <data name="Welcome to the product management system." xml:space="preserve">
+    <value>Ürün yönetim sistemine hoşgeldiniz.</value>
+  </data>
+  <data name="Welcome User Page" xml:space="preserve">
+    <value>Kullanıcı Sayfasına Hoşgeldiniz</value>
+  </data>
+  <data name="Welcome!" xml:space="preserve">
+    <value>Hoş Geldiniz!</value>
+  </data>
+  <data name="What are the Application Interface and Features?" xml:space="preserve">
+    <value>Uygulama Arayüzü ve Özellikleri Nelerdir?</value>
+  </data>
+  <data name="What should I do for product management?" xml:space="preserve">
+    <value>Ürün yönetimi için ne yapmalıyım?</value>
+  </data>
+  <data name="What's in the App Interface?" xml:space="preserve">
+    <value>Uygulama Arayüzünde neler var?</value>
+  </data>
+  <data name="When Adding a New Product:" xml:space="preserve">
+    <value>Yeni Bir Ürün Eklerken:</value>
+  </data>
+  <data name="You can close this page." xml:space="preserve">
+    <value>Bu sayfayı kapatabilirsiniz</value>
+  </data>
+  <data name="You can create a new account from the user table. This account is a user account, a random password is generated by the system for the mail account you registered while creating it and this password is sent to the mail address. The user can immediately log in to the system with this password and it becomes active." xml:space="preserve">
+    <value>Kullanıcı tablosundan yeni bir hesap oluşturabilirsiniz. Bu hesap bir kullanıcı hesabıdır, oluştururken kaydettiğiniz mail hesabı için sistem tarafından rastgele bir şifre üretilir ve bu şifre mail adresine gönderilir. Kullanıcı bu şifre ile hemen sisteme giriş yapabilir ve aktif hale gelir.</value>
+  </data>
+  <data name="You can perform basic user operations on the user panel, update the user when necessary, and view detailed information about the user using the button on the table." xml:space="preserve">
+    <value>Kullanıcı paneli üzerinden temel kullanıcı işlemlerini gerçekleştirebilir, gerektiğinde kullanıcıyı güncelleyebilir, tabloda bulunan butonu kullanarak kullanıcıya ait detaylı bilgileri görüntüleyebilirsiniz.</value>
+  </data>
+  <data name="You can see the full list of registered users in the system in the users section of the admin panel. You will see users who have not completed the registration process in red as Registration Incomplete. In such long-term cases, you can delete the user from the system or block the user from entering the system using switches on the same table. We still recommend that you try not to abuse this situation!" xml:space="preserve">
+    <value>Sistemde kayıtlı kullanıcıların tam listesini admin panelinin kullanıcılar kısmından görebilirsiniz. Kayıt işlemini tamamlamamış kullanıcıları kırmızı renkte "Kayıt Yapılmadı" olarak göreceksiniz. Bu gibi uzun vadeli durumlarda kullanıcıyı sistemden silebilir veya aynı tablodaki switch'leri kullanarak kullanıcının sisteme girmesini engelleyebilirsiniz. Yine de bu durumu kötüye kullanmamaya çalışmanızı öneririz!</value>
+  </data>
+  <data name="You can view products and get price information, but you cannot make a purchase at this time. We will activate payment transactions for you soon." xml:space="preserve">
+    <value>Ürünleri görüntüleyebilir ve fiyat bilgisi alabilirsin ancak satın alma işlemi şuan için gerçekleştiremezsin. Yakın zamanda ödeme işlemlerini senin için aktive edeceğiz.</value>
+  </data>
+</root>

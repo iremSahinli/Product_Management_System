@@ -1,0 +1,120 @@
+﻿@model ManagmentSystem.Presentation.Areas.Admin.Models.UserVMs.AdminUserDetailVM
+
+@{
+    ViewData["Title"] = "UserDetail";
+}
+
+<br />
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> Localizer
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-transparent text-center">
+                <div class="card-body">
+                    <h2 class="text-center">@Localizer["User Detail"]</h2>
+
+                    <div class="image-container mx-auto">
+
+                        @if (!string.IsNullOrEmpty(Model.ProfileImage))
+                        {
+                            <img src="@Url.Content($"~/uploads/{Model.ProfileImage}")" alt="Profile Photo" class="profile-photo" />
+                        }
+                        else
+                        {
+                            <img src="/uploads/Not Image.jpg" alt="Profile Photo" class="profile-photo" />
+                        }
+                    </div>
+
+                    <h4 class="card-title">@Model.FirstName @Model.LastName</h4>
+                    <h6 class="category text-info text-gradient">@Localizer["User"]</h6>
+                    <hr />
+
+                    <dl class="row justify-content-center">
+                        <dt class="col-sm-4">@Localizer["Mail"]:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Mail)</dd>
+                        <dt class="col-sm-4">@Localizer["Phone Number"]:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.PhoneNumber)</dd>
+                        <dt class="col-sm-4">@Localizer["Date of Birth"]:</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.DateOfBirth.HasValue)
+                            {
+                                @Model.DateOfBirth.Value.ToString("dd.MM.yyyy")
+                            }
+                            else
+                            {
+                                <span>N/A</span>
+                            }
+                        </dd>
+                        <dt class="col-sm-4">@Localizer["Address"]:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Address)</dd>
+                    </dl>
+                    <div class="text-center mt-4">
+                        <a asp-action="ListUsers" class="btn btn-success">@Localizer["Back to List"]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .card-transparent {
+        background-color: rgba(255, 255, 255); /* Beyaz arka plan, %90 opaklık */
+        border: 1px solid #ddd; /* Opsiyonel: Kartın etrafında ince bir sınır */
+        display: grid;
+        max-width: 75%;
+        padding: 0 15px;
+        overflow-x: hidden;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 10px;
+        border: 1px solid #ddd; /* Çerçeve ekliyoruz */
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .dl {
+        display: table; /* Tablo yapısı oluşturur */
+        width: 50%; /* Genişliği %50 yapar */
+    }
+
+    .row dt {
+        display: grid;
+        width: 50%; /* Her iki sütunun eşit genişlikte olmasını sağlar */
+        text-align: right; /* Metinleri sağa hizalar */
+        vertical-align: middle; /* Dikeyde ortalar */
+    }
+
+    .row dd {
+        display: grid;
+        width: 50%; /* Her iki sütunun eşit genişlikte olmasını sağlar */
+        padding: 0px; /* İç boşluk */
+        vertical-align: middle; /* Dikeyde ortalar */
+        text-align: left;
+        white-space: normal;
+    }
+</style>
+
+
+
+
+
+
+
+
+

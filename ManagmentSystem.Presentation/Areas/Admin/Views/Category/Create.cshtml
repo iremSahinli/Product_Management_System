@@ -1,0 +1,152 @@
+﻿@model ManagmentSystem.Presentation.Areas.Admin.Models.CategoryVMs.AdminCategoryCreateVM
+
+@{
+    ViewData["Title"] = Localizer["Create"]; // Sayfa başlığı için Localizer kullanıyoruz.
+}
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> Localizer
+
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card profile-card mx-auto">
+            <div class="card-body">
+                <h2 class="text-center">@Localizer["Create Category"]</h2>
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="CategoryName" class="control-label">@Localizer["Category Name"]</label>
+                        <input asp-for="CategoryName" type="text" class="form-control transparent-border-input" placeholder="@Localizer["Category Name"]" />
+                        <span asp-validation-for="CategoryName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label">@Localizer["Description"]</label>
+                        <textarea asp-for="Description" class="form-control transparent-border-input" rows="3"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <!-- Ana/Alt Kategori Seçimi -->
+                    <div class="form-group">
+                        <label>@Localizer["Category Types"]</label><br />
+                        <input type="radio" name="IsMainCategory" value="true" checked /> @Localizer["Main Category"]
+                        <input type="radio" name="IsMainCategory" value="false" /> @Localizer["Sub Category"]
+                    </div>
+
+                    <!-- Ana Kategori Seçimi (Eğer Alt Kategori Seçildiyse Gösterilecek) -->
+                    <div class="form-group" id="parentCategoryDropdown" style="display:none;">
+                        <label for="ParentCategoryId">@Localizer["Select Main Category"]</label>
+                        <select asp-for="ParentCategoryId" class="form-control transparent-border-input" asp-items="ViewBag.Categories">
+                            <option value="">@Localizer["Choose a Main Category"]</option>
+                        </select>
+                        <span asp-validation-for="ParentCategoryId" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-4 gap-2">
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-success btn-lg">@Localizer["Create"]</button>
+                        </div>
+                        <div class="mt-3">
+                            <a href="@Url.Action("Index", "Category")" class="btn btn-danger btn-lg">@Localizer["Back"]</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Eğer alt kategori seçildiyse ana kategori dropdown'ını göster
+        document.querySelectorAll('input[name="IsMainCategory"]').forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                if (this.value === "false") {
+                    document.getElementById('parentCategoryDropdown').style.display = 'block';
+                } else {
+                    document.getElementById('parentCategoryDropdown').style.display = 'none';
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    .profile-card {
+        background-color: rgba(255, 255, 255, 1.0); /* Hafif transparan arka plan */
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin-top: 20px;
+        max-width: 600px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            margin-bottom: 5px;
+        }
+
+    .transparent-border-input {
+        background-color: rgba(255, 255, 255, 0.9); /* Beyaz arka plan, hafif saydam */
+        border: 1px solid rgba(0, 0, 0, 0.1); /* Hafif gri kenarlık */
+        color: #000; /* Yazı rengi */
+        padding: 10px;
+        border-radius: 8px;
+        transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+        .transparent-border-input:focus {
+            border-color: rgba(0, 123, 255, 0.9); /* Odaklandığında daha belirgin çerçeve */
+            background-color: rgba(255, 255, 255, 0.5); /* Focus olduğunda arka plan biraz daha dolu */
+            outline: none; /* Tarayıcı varsayılan outline'ını kaldırır */
+        }
+
+    .btn {
+        margin-top: 10px;
+    }
+
+    .btn-success {
+        background-color: #28a745; /* Yeşil buton arka planı */
+        border-color: #28a745; /* Yeşil buton kenarlığı */
+        color: white; /* Yazı rengi beyaz */
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none; /* Kenarlık yok */
+    }
+
+    .btn-danger {
+        background-color: #dc3545; /* Kırmızı buton arka planı */
+        border-color: #dc3545; /* Kırmızı buton kenarlığı */
+        color: white; /* Yazı rengi beyaz */
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none; /* Kenarlık yok */
+        text-decoration: none; /* Alt çizgi yok */
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .mx-2 {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+</style>

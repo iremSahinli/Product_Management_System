@@ -1,0 +1,135 @@
+﻿@model ManagmentSystem.Presentation.Models.AccountVM.UserProfileVM
+
+@{
+    ViewData["Title"] = "Update Profile";
+}
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> Localizer
+
+
+
+
+<br />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="form-container">
+                <form asp-action="Update" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <h2 class="text-center">@Localizer["Update Profile"]</h2>
+                    <div class="image-container mx-auto">
+                        @if (!string.IsNullOrEmpty(Model.ProfileImage))
+                        {
+                            <img src="@Url.Content($"~/uploads/{Model.ProfileImage}")" alt="Profile Photo" class="profile-photo" />
+                        }
+                        else
+                        {
+                            <img src="/uploads/Not Image.jpg" alt="Profile Photo" class="profile-photo" />
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label">@Localizer["First Name"]</label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label">@Localizer["Last Name"]</label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label">@Localizer["Phone Number"]</label>
+                        <input asp-for="PhoneNumber" class="form-control" maxlength="10" pattern="0[0-9]{9}" title="Telefon numarası 10 haneli ve başında 0 olmayacak şekilde girilmelidir." placeholder="--- --- -- --" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateOfBirth" class="control-label">@Localizer["Date of Birth"]</label>
+                        <input asp-for="DateOfBirth" class="form-control" type="date" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label">@Localizer["Address"]</label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mail" class="control-label">@Localizer["Mail"]</label>
+                        <input asp-for="Mail" class="form-control" readonly />
+                        <span asp-validation-for="Mail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProfileImagePath" class="control-label">@Localizer["Profile Image_"]</label>
+                        <input asp-for="ProfileImagePath" class="form-control" type="file" />
+                        <span asp-validation-for="ProfileImagePath" class="text-danger"></span>
+                    </div>
+                    <div class="form-group button-group text-center">
+                        <button type="submit" class="btn btn-success">@Localizer["Save"]</button>
+                        <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Index")'">@Localizer["Back to List"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+
+
+    .form-container {
+        background-color: rgba(255, 255, 255); /* Transparan arka plan */
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+    }
+
+    .form-group {
+        margin-bottom: 1px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 5px;
+        border: 1px solid #ddd; /* Çerçeve */
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .button-group button {
+        min-width: 100px; /* Butonların minimum genişliği */
+        height: 40px; /* Butonların sabit yüksekliği */
+        margin: 5px; /* Butonlar arasındaki boşluk */
+    }
+
+</style>
+
